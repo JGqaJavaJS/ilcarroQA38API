@@ -24,7 +24,7 @@ public class BaseTest {
                 .firstName("aaa")
                 .lastName("bbb")
                 .build();
-        authentificationController.setToken(blas);
+        authentificationController.setToken(userDTO);
     }
 
 }

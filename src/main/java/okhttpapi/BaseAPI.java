@@ -21,7 +21,9 @@ public class BaseAPI {
         return token;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setToken(UserDTO userDTO) {
+        AuthenticationController authenticationController = new AuthenticationController();
+        token = authenticationController.setTokenFromResponse(userDTO);
+        System.out.println("token from base api " + token);
     }
 }

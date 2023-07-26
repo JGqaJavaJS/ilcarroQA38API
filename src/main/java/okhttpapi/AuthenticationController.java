@@ -23,7 +23,7 @@ public class AuthenticationController extends BaseAPI{
         return responseAuth;
     }
 
-    public void setTokenFromResponse(UserDTO userDTO) {
+    public String setTokenFromResponse(UserDTO userDTO) {
         if(responseAuth == null) {
             responseAuthSignIn(userDTO);
         }
@@ -35,7 +35,7 @@ public class AuthenticationController extends BaseAPI{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        setToken(tokenLocal);
+        return tokenLocal;
     }
 
 
