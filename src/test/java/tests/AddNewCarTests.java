@@ -48,8 +48,18 @@ public class AddNewCarTests extends BaseTest{
 
         response.then().assertThat().statusCode(200);
 
-        car = AddCarDTO.builder()
-                .serialNumber(serNumber)
+        response = carController.requestNewCar(car);
+        System.out.println("200 above");
+
+        response.then().assertThat().statusCode(400);
+        System.out.println("400 above");
+
+    }
+
+    @Test
+    public void addNewCarNegativeWrongToken() {
+        AddCarDTO car = AddCarDTO.builder()
+                .serialNumber(randomHelper.generateRandomString(10))
                 .manufacture("opel")
                 .model("corsa")
                 .year("1990")
@@ -61,11 +71,9 @@ public class AddNewCarTests extends BaseTest{
                 .city("Tel Aviv")
                 .build();
 
-        response = carController.requestNewCar(car);
-        System.out.println("200 above");
+        Response response = carController.requestNewCar1(car);
 
-        response.then().assertThat().statusCode(400);
-        System.out.println("400 above");
+        response.then().assertThat().statusCode(401);
 
     }
 }

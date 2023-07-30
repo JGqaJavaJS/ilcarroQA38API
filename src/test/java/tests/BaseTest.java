@@ -5,6 +5,7 @@ import dto.UserDTO;
 import helpers.RandomHelper;
 import okhttpapi.AuthenticationController;
 import okhttpapi.CarController;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
@@ -28,6 +29,14 @@ public class BaseTest {
         authentificationController.setToken(userDTO);
 
         authentificationController.setPath();
+    }
+
+    @AfterSuite
+    public void end() {
+        System.out.println(email);
+
+        // TODO delete user - when developers add this functionality
+        // bug report: 123/78
     }
 
 }
