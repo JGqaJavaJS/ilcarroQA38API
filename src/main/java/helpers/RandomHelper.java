@@ -26,4 +26,18 @@ public class RandomHelper {
         return email;
     }
 
+    public String generateRandomString(int lengthIn) {
+        String allowedCharacters = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+        Random random = new Random();
+        String str = "";
+        int length = allowedCharacters.length();
+
+        for (int i = 0; i < lengthIn; i++) {
+            int randomIndex = random.nextInt(length);
+            str = str + allowedCharacters.charAt(randomIndex);
+        }
+        return str;
+    }
+
 }

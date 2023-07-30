@@ -1,5 +1,6 @@
 package tests;
 
+import com.jayway.restassured.RestAssured;
 import dto.UserDTO;
 import helpers.RandomHelper;
 import okhttpapi.AuthenticationController;
@@ -25,6 +26,8 @@ public class BaseTest {
                 .lastName("bbb")
                 .build();
         authentificationController.setToken(userDTO);
+
+        authentificationController.setPath();
     }
 
 }
