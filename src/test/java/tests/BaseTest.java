@@ -16,6 +16,7 @@ public class BaseTest {
     AuthenticationController authentificationController = new AuthenticationController();
     CarController carController = new CarController();
     RandomHelper randomHelper = new RandomHelper();
+    String token;
 
     @BeforeSuite
     public void start() {
@@ -26,9 +27,10 @@ public class BaseTest {
                 .firstName("aaa")
                 .lastName("bbb")
                 .build();
-        authentificationController.setToken(userDTO);
+        token = authentificationController.setTokenFromResponse(userDTO);
 
         authentificationController.setPath();
+
     }
 
     @AfterSuite

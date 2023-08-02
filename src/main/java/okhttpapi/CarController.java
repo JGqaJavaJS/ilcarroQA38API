@@ -9,10 +9,10 @@ public class CarController extends BaseAPI{
 
     Response responseAddNewCar;
 
-    public Response requestNewCar(AddCarDTO addCarDTO) {
+    public Response requestNewCar(AddCarDTO addCarDTO, String token) {
         System.out.println("token from request add car " + token);
         return RestAssured.given()
-                .header("Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiZWl4MGxtZHE3Y0BnbWFpbC5jb20iLCJpc3MiOiJSZWd1bGFpdCIsImV4cCI6MTY5MTMzODYxNywiaWF0IjoxNjkwNzM4NjE3fQ.u05gihZRUjvFKnE6VOyIUBtv5_o7SQq1RUopyu0GSPc")
+                .header("Authorization", token)
                 .body(addCarDTO)
                 .contentType(ContentType.JSON)
                 .when()

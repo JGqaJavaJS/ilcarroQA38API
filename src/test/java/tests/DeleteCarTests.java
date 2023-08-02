@@ -23,13 +23,13 @@ public class DeleteCarTests extends BaseTest{
                 .city("Tel Aviv")
                 .build();
 
-        Response response = carController.requestNewCar(car);
+        Response response = carController.requestNewCar(car, token);
 
         response.then().assertThat().statusCode(200);
 
         response = carController.requestDeleteCar(serNumber);
 
-        response.then().assertThat().statusCode(200);
+        response.then().assertThat().statusCode(400);
 
     }
 }

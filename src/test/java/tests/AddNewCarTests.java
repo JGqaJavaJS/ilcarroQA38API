@@ -22,7 +22,7 @@ public class AddNewCarTests extends BaseTest{
                 .city("Tel Aviv")
                 .build();
 
-        Response response = carController.requestNewCar(car);
+        Response response = carController.requestNewCar(car, token);
 
         response.then().assertThat().statusCode(200);
 
@@ -44,11 +44,11 @@ public class AddNewCarTests extends BaseTest{
                 .city("Tel Aviv")
                 .build();
 
-        Response response = carController.requestNewCar(car);
+        Response response = carController.requestNewCar(car, token);
 
         response.then().assertThat().statusCode(200);
 
-        response = carController.requestNewCar(car);
+        response = carController.requestNewCar(car, token);
         System.out.println("200 above");
 
         response.then().assertThat().statusCode(400);

@@ -16,17 +16,17 @@ public class BaseAPI {
 
     String baseUrl = "https://ilcarro-backend.herokuapp.com";
 
-    String token;
+   // String token;
 
 //    public String getToken() {
 //        return token;
 //    }
 
-    public void setToken(UserDTO userDTO) {
-        AuthenticationController authenticationController = new AuthenticationController();
-        token = authenticationController.setTokenFromResponse(userDTO);
-        System.out.println("token from base api " + token);
-    }
+//    public void setToken(UserDTO userDTO) {
+//        AuthenticationController authenticationController = new AuthenticationController();
+//        token = authenticationController.setTokenFromResponse(userDTO);
+//        System.out.println("token from base api " + token);
+//    }
 
     public void setPath() {
         RestAssured.baseURI = baseUrl;
